@@ -250,4 +250,3 @@ dependencies:
   - pip:
       - lap==0.5.12
       - pytubefix==9.1.1
-prefix: C:\Users\BBrb5\miniconda3\envs\ultics_stuff
