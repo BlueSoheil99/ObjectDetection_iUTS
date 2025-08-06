@@ -7,11 +7,10 @@ import torch
 from collections import defaultdict
 from ultralytics import YOLO
 from ultralytics.engine.results import Boxes
+def video_analysis(video_path : str, id=0, mdl=1, acc=3): # id is output file id, mdl is model used, acc is decimal place accuracy
+    # Load model
+    model = YOLO("data/models/{}.pt".format(mdl))
 
-# Load model
-model = YOLO("data/models/yolo11n.pt")
-
-def video_analysis(video_path : str, id=0, acc=3):
     # analyze video
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)

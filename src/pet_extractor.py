@@ -31,7 +31,7 @@ def clean_df(df, traj_list, mag_cutoff, valid_classes):
             traj_list.pop(i)
     return [traj_list, df]
 
-def extract_pet(df, sec_cutoff=4, traj_cutoff=0.9, mag_cutoff=50, valid_classes=["bus","truck","car"]):
+def extract_pet(df, sec_cutoff=4, traj_cutoff=0.9, mag_cutoff=50, valid_classes=["bus","truck","car","motorcycle"]):
     fps = round(1/float(df.columns[2]), 3) # extract FPS
     delta_f = int(sec_cutoff * fps) # change in frames based on FPS and sec_cutoff
 
