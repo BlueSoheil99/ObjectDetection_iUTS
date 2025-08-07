@@ -10,5 +10,6 @@ detection:
   mask_region: [100, 100, 300, 300]
 
 training:
+  dataset: data/shared_files_dataset/data.yaml
   epoch: 100
 

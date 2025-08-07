@@ -17,7 +17,4 @@ def train(model_path, training_configs):
     model = YOLO(model_path)
 
     # Train the model #todo modify this
-    results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
-
-    # Save the model
-    pass
+    results = model.train(data=training_configs['dataset'], epochs=2)
