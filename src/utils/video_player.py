@@ -177,6 +177,12 @@ class VideoPlayer:
         print(f"Exported to: {folder}")
 
 
+def open_video(video_path):
+    root = tk.Tk()
+    root.title(video_path)
+    player = VideoPlayer(root, video_path=video_path)  # Replace with your video path
+    root.mainloop()
+
 # Run the video player
 if __name__ == "__main__":
     # run this file from root directory

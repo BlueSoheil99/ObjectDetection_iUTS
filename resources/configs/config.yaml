@@ -1,0 +1,14 @@
+model: resources/models/1.pt
+
+data:
+  input_folder: data/input
+  output_folder: data/output
+  input_file: test2.mp4
+
+detection:
+  confidence_threshold: 0.4
+  mask_region: [100, 100, 300, 300]
+
+training:
+  epoch: 100
+
