@@ -60,21 +60,19 @@ def run_model(configs:dict):
         # fisheye correction goes here
 
         # run video analysis on input video
-        model_output = video_analysis.video_analysis(video_path=inputs[i],
-                                                     model=model_path,
-                                                     output_path=output_folder,
-                                                     id=i)
-        # in format (df, results, (fps, resolution))
+        analyzer = video_analysis.VideoAnalyzer(video_dir=inputs[i], output_dir=output_folder, id=i)
+        model_output = analyzer.run_detection(model=model_path) #returns: (df, results)
 
         # run pet_extractor on the dataframe
         pet_output = pet_extractor.extract_pet(model_output[0], sec_cutoff=4,
                                                traj_cutoff=0.9, mag_cutoff=50,
                                                valid_classes=["bus","truck","car"])
+        #todo these should come from config file
+
 
         # run the video formulator on results object, take ids as input
         for output in pet_output:
-            video_analysis.specific_output(output_folder,[output[0], output[1]],
-                                           model_output[1], model_output[2], i)
+            analyzer.specific_output([output[0], output[1]], model_output[1])
 
 
 
@@ -101,7 +99,7 @@ def create_parser(defaults):
         "-m", "--model",
         default=defaults['model'],
         help=f"The ID or path of the model to use. Default is {defaults['model']}."
-    )  # TODO document what exactly model 0 and 1 are.
+    )
 
     parser.add_argument(
         '-c', '--config',
@@ -133,7 +131,7 @@ if __name__ == "__main__":
         model_trainer.train(model_path, training_config)
 
     elif args.action == "open_video":
-        print('opening video!')
+        print('opening video!') #test
         folder = configs["data"]["input_folder"]
         file = configs["data"]["input_file"]
         video_player.open_video(os.path.join(folder, file))
