@@ -17,4 +17,7 @@ def train(model_path, training_configs):
     model = YOLO(model_path)
 
     # Train the model #todo modify this
-    results = model.train(data=training_configs['dataset'], epochs=2)
+    results = model.train(data=training_configs['dataset'],
+                          epochs=training_configs['epoch'],
+                          device=training_configs['device'])
+    # results = model.train(data=training_configs['dataset'], epochs=2)

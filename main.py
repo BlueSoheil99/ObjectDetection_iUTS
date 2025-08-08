@@ -71,8 +71,8 @@ def run_model(configs:dict):
 
 
         # run the video formulator on results object, take ids as input
-        for output in pet_output:
-            analyzer.specific_output([output[0], output[1]], model_output[1])
+        # for output in pet_output:
+        #     analyzer.specific_output([output[0], output[1]], model_output[1])
 
 
 
@@ -118,6 +118,7 @@ if __name__ == "__main__":
     parser = create_parser(default_values)
     # Parse the arguments from the command line
     args = parser.parse_args()
+    #todo make sure given arguements overwrites the config file
     # Load configs
     configs = load_config(args.config)
 

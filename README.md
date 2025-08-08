@@ -25,3 +25,11 @@ options:
 - model1: ask Yiran about the soruce
 - model2: trained using 100 fisheye annotations
 - model3: 
+
+```
+conda create -n objectDetection python=3.10
+conda activate objectDetection
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+pip install ultralytics
+
+```

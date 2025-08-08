@@ -1,4 +1,6 @@
-model: resources/models/1.pt
+model: resources/models/0.pt
+#model: resources/models/1.pt
+#model: runs\detect\train\weights\best.pt
 
 data:
   input_folder: data/input
@@ -11,5 +13,6 @@ detection:
 
 training:
   dataset: data/shared_files_dataset/data.yaml
+  device: 0
   epoch: 100
 
